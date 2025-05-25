@@ -575,10 +575,10 @@ npm run analyze
 ```
 
 ### Support Channels
-- 📧 **Email**: support@tudominio.com
+- 📧 **Email**: support@wazaut.com
 - 💬 **Discord**: [Link al servidor]
 - 📖 **Docs**: https://docs.tudominio.com
-- 🐛 **Issues**: https://github.com/tu-usuario/messaging-widget/issues
+- 🐛 **Issues**: https://github.com/japc-74/messaging-widget/issues
 
 ---
 

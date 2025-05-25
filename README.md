@@ -19,7 +19,7 @@ Widget embebible reutilizable para integrar múltiples canales de mensajería (W
 ### Opción 1: Script directo
 
 ```html
-<script src="https://cdn.ejemplo.com/messaging-widget/v1/widget.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/messaging-widget@1.0.1"></script>
 <script>
   MessagingWidget.init({
     channels: {
@@ -45,7 +45,7 @@ Widget embebible reutilizable para integrar múltiples canales de mensajería (W
 
 ```html
 <script 
-  src="https://cdn.ejemplo.com/messaging-widget/v1/widget.min.js"
+  src="https://www.npmjs.com/package/messaging-widget/v/1.0.1"
   data-messaging-widget
   data-whatsapp="+1234567890"
   data-instagram="tu_usuario"
@@ -106,7 +106,7 @@ MessagingWidget.init({
     },
     internalChat: {
       enabled: true,
-      socketUrl: 'wss://tu-servidor.com/chat'
+      socketUrl: 'wss://wazaut.com/chat'
     }
   },
   
@@ -138,7 +138,7 @@ MessagingWidget.init({
     enabled: true,
     trackClicks: true,
     trackMessages: true,
-    endpoint: 'https://tu-servidor.com/analytics'
+    endpoint: 'https://wazaut.com/analytics'
   }
 });
 ```
@@ -200,7 +200,7 @@ import { useEffect } from 'react';
 const useMessagingWidget = (config) => {
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = 'https://cdn.ejemplo.com/messaging-widget/v1/widget.min.js';
+    script.src = 'https://cdn.jsdelivr.net/npm/messaging-widget@1.0.1';
     script.onload = () => {
       window.MessagingWidget.init(config);
     };
@@ -231,7 +231,7 @@ function App() {
 // functions.php
 function add_messaging_widget() {
     ?>
-    <script src="https://cdn.ejemplo.com/messaging-widget/v1/widget.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/messaging-widget@1.0.1"></script>
     <script>
     MessagingWidget.init({
       channels: {
@@ -260,7 +260,7 @@ add_action('wp_footer', 'add_messaging_widget');
 export default {
   mounted() {
     const script = document.createElement('script');
-    script.src = 'https://cdn.ejemplo.com/messaging-widget/v1/widget.min.js';
+    script.src = 'https://cdn.jsdelivr.net/npm/messaging-widget@1.0.1';
     script.onload = () => {
       window.MessagingWidget.init({
         channels: {
@@ -356,7 +356,7 @@ El widget rastrea automáticamente los siguientes eventos:
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/tu-usuario/messaging-widget.git
+git clone https://github.com/wazaut/messaging-widget.git
 cd messaging-widget
 ```
 
@@ -400,7 +400,7 @@ php -S localhost:8000
 ### CDN (Recomendado)
 
 ```html
-<script src="https://cdn.ejemplo.com/messaging-widget/v1/widget.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/messaging-widget@1.0.1"></script>
 ```
 
 ### Self-Hosted
@@ -470,14 +470,13 @@ MIT License - ver [LICENSE](LICENSE) para más detalles.
 
 ## 📞 Soporte
 
-- 📧 Email: soporte@ejemplo.com
-- 💬 Discord: [Únete a nuestro servidor](https://discord.gg/ejemplo)
-- 📖 Docs: [Documentación completa](https://docs.ejemplo.com)
-- 🐛 Issues: [GitHub Issues](https://github.com/tu-usuario/messaging-widget/issues)
+- 📧 Email: soporte@wazaut.com
+- 📖 Docs: [Documentación completa](https://docs.wazaut.com)
+- 🐛 Issues: [GitHub Issues](https://github.com/wazaut/messaging-widget/issues)
 
 ## 🏆 Créditos
 
-Desarrollado con ❤️ por [Tu Nombre](https://github.com/tu-usuario)
+Desarrollado con ❤️ por [Tu Nombre](https://github.com/wazaut)
 
 ### Iconos
 - WhatsApp, Instagram, Messenger iconos por sus respectivos propietarios
