@@ -502,4 +502,4 @@ if (typeof window !== 'undefined') {
   window.MessagingWidget = widget;
 }
 
-export default widget;
+module.exports = widget;

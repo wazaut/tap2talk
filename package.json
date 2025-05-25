@@ -1,6 +1,6 @@
 {
   "name": "messaging-widget",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Widget embebible multi-canal para WhatsApp, Instagram, Messenger y chat interno",
   "main": "dist/messaging-widget.min.js",
   "module": "src/messaging-widget.js",
@@ -52,16 +52,17 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tu-usuario/messaging-widget.git"
+    "url": "git+https://github.com/tu-usuario/messaging-widget.git"
   },
   "bugs": {
     "url": "https://github.com/tu-usuario/messaging-widget/issues"
   },
   "homepage": "https://github.com/tu-usuario/messaging-widget#readme",
   "devDependencies": {
-    "@babel/core": "^7.22.0",
+    "@babel/core": "^7.27.1",
     "@babel/preset-env": "^7.22.0",
     "autoprefixer": "^10.4.14",
+    "babel-jest": "^29.7.0",
     "babel-loader": "^9.1.0",
     "bundlesize": "^0.18.0",
     "copyfiles": "^2.4.1",
@@ -73,6 +74,7 @@
     "html-webpack-plugin": "^5.5.3",
     "http-server": "^14.1.1",
     "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.7.0",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss": "^8.4.24",
     "postcss-cli": "^10.1.0",
@@ -102,11 +104,16 @@
   ],
   "jest": {
     "testEnvironment": "jsdom",
-    "setupFilesAfterEnv": ["<rootDir>/tests/setup.js"],
-    "testMatch": ["<rootDir>/tests/**/*.test.js"],
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.js"
+    ],
     "collectCoverageFrom": [
       "src/**/*.js",
       "!src/**/*.test.js"
-    ]
+    ],
+    "injectGlobals": true,
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
   }
 }
