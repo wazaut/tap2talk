@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaging Widget Demo</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .hero { text-align: center; color: white; margin-bottom: 40px; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .demo-section { background: white; padding: 30px; border-radius: 15px; margin-bottom: 30px; }
+        .config-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 20px; }
+        .config-group { background: #f8f9fa; padding: 15px; border-radius: 8px; }
+        .config-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+        .config-group input, .config-group select { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        .btn { background: #25D366; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; margin: 5px; }
+        .btn:hover { background: #128C7E; }
+        .code-block { background: #2d3748; color: #e2e8f0; padding: 15px; border-radius: 6px; font-family: monospace; font-size: 14px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>🚀 Messaging Widget</h1>
+            <p>Widget multi-canal para WhatsApp, Instagram, Messenger y chat interno</p>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎯 Configurador en Vivo</h2>
+            <div class="config-options">
+                <div class="config-group">
+                    <label for="position">Posición:</label>
+                    <select id="position">
+                        <option value="bottom-right">Abajo Derecha</option>
+                        <option value="bottom-left">Abajo Izquierda</option>
+                        <option value="top-right">Arriba Derecha</option>
+                        <option value="top-left">Arriba Izquierda</option>
+                    </select>
+                </div>
+                <div class="config-group">
+                    <label for="primaryColor">Color:</label>
+                    <input type="color" id="primaryColor" value="#25D366">
+                </div>
+                <div class="config-group">
+                    <label for="whatsappNumber">WhatsApp:</label>
+                    <input type="text" id="whatsappNumber" value="+1234567890">
+                </div>
+            </div>
+            <button class="btn" onclick="updateWidget()">🔄 Actualizar</button>
+            <button class="btn" onclick="resetWidget()">↩️ Reset</button>
+            <button class="btn" onclick="addTestMessage()">💬 Mensaje Test</button>
+        </div>
+
+        <div class="demo-section">
+            <h2>📥 Instalación Básica</h2>
+            <div class="code-block">
+&lt;script src="messaging-widget.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+MessagingWidget.init({
+  channels: {
+    whatsapp: { enabled: true, number: '+1234567890' },
+    instagram: { enabled: true, username: 'tu_usuario' },
+    messenger: { enabled: true, pageId: 'tu_page_id' }
+  },
+  appearance: {
+    position: 'bottom-right',
+    primaryColor: '#25D366'
+  }
+});
+&lt;/script&gt;
+            </div>
+        </div>
+    </div>
+
+    <script src="messaging-widget.min.js"></script>
+    <script>
+        MessagingWidget.init({
+            channels: {
+                whatsapp: { enabled: true, number: '+1234567890', message: '¡Hola! Me gustaría más información.' },
+                instagram: { enabled: true, username: 'ejemplo_usuario' },
+                messenger: { enabled: true, pageId: 'ejemplo_page_id' },
+                internalChat: { enabled: true }
+            },
+            hooks: {
+                onInit: () => console.log('✅ Widget listo'),
+                onChatOpen: (channel) => console.log(`📱 Abierto: ${channel}`),
+                onMessageSend: (msg, channel) => console.log(`💬 "${msg}" en ${channel}`)
+            }
+        });
+
+        function updateWidget() {
+            MessagingWidget.updateConfig({
+                channels: {
+                    whatsapp: { enabled: true, number: document.getElementById('whatsappNumber').value },
+                    instagram: { enabled: true, username: 'ejemplo_usuario' },
+                    messenger: { enabled: true, pageId: 'ejemplo_page_id' },
+                    internalChat: { enabled: true }
+                },
+                appearance: {
+                    position: document.getElementById('position').value,
+                    primaryColor: document.getElementById('primaryColor').value
+                }
+            });
+            alert('✅ Widget actualizado!');
+        }
+
+        function resetWidget() {
+            document.getElementById('position').value = 'bottom-right';
+            document.getElementById('primaryColor').value = '#25D366';
+            document.getElementById('whatsappNumber').value = '+1234567890';
+            updateWidget();
+        }
+
+        function addTestMessage() {
+            MessagingWidget.addMessageProgrammatically('Mensaje de prueba desde la API', 'received');
+            alert('💬 Mensaje añadido al chat');
+        }
+    </script>
+</body>
+</html>

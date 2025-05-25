@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo Básico - Messaging Widget</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+      p {
+        line-height: 1.6;
+        color: #666;
+      }
+      .highlight {
+        background: #e8f5e8;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 20px 0;
+        border-left: 4px solid #25d366;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🌟 Ejemplo Básico del Widget</h1>
+
+      <p>
+        Este es un ejemplo simple de cómo integrar el widget de mensajería en tu sitio web. El
+        widget aparecerá en la esquina inferior derecha.
+      </p>
+
+      <div class="highlight">
+        <strong>📱 Canales configurados:</strong>
+        <ul>
+          <li>WhatsApp: +1234567890</li>
+          <li>Instagram: @ejemplo_usuario</li>
+          <li>Facebook Messenger: ejemplo_page_id</li>
+          <li>Chat interno habilitado</li>
+        </ul>
+      </div>
+
+      <p>
+        Haz clic en el botón flotante para ver todos los canales disponibles. Puedes probar enviando
+        un mensaje en el chat interno.
+      </p>
+
+      <h2>📋 Código de integración usado:</h2>
+      <pre style="background: #f8f8f8; padding: 15px; border-radius: 5px; overflow-x: auto">
+&lt;script src="../js/messaging-widget.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+MessagingWidget.init({
+  channels: {
+    whatsapp: {
+      enabled: true,
+      number: '+1234567890',
+      message: '¡Hola! Me gustaría obtener más información.'
+    },
+    instagram: {
+      enabled: true,
+      username: 'ejemplo_usuario'
+    },
+    messenger: {
+      enabled: true,
+      pageId: 'ejemplo_page_id'
+    },
+    internalChat: {
+      enabled: true
+    }
+  }
+});
+&lt;/script&gt;
+        </pre
+      >
+    </div>
+
+    <!-- Widget de Mensajería -->
+    <script src="../js/messaging-widget.js"></script>
+    <script>
+      MessagingWidget.init({
+        channels: {
+          whatsapp: {
+            enabled: true,
+            number: '+1234567890',
+            message: '¡Hola! Me gustaría obtener más información sobre sus servicios.',
+          },
+          instagram: {
+            enabled: true,
+            username: 'ejemplo_usuario',
+          },
+          messenger: {
+            enabled: true,
+            pageId: 'ejemplo_page_id',
+          },
+          internalChat: {
+            enabled: true,
+          },
+        },
+        appearance: {
+          position: 'bottom-right',
+          primaryColor: '#25D366',
+        },
+        internalChat: {
+          title: 'Soporte en Línea',
+          welcomeMessage:
+            '¡Hola! Bienvenido a nuestro chat de soporte. ¿En qué podemos ayudarte hoy?',
+        },
+        hooks: {
+          onInit: () => {
+            console.log('Widget de mensajería inicializado correctamente');
+          },
+          onChatOpen: channel => {
+            console.log(`Canal abierto: ${channel}`);
+          },
+          onMessageSend: (message, channel) => {
+            console.log(`Mensaje enviado en ${channel}: ${message}`);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

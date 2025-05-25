@@ -1,0 +1,373 @@
+/**
+ * Messaging Widget CSS
+ * Estilos opcionales para sitios web que no soportan Shadow DOM
+ */
+
+#messaging-widget-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.messaging-widget-main-button {
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.messaging-widget-main-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.messaging-widget-main-button:active {
+  transform: scale(0.95);
+}
+
+.messaging-widget-main-button svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+.messaging-widget-channels-menu {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  min-width: 200px;
+  overflow: hidden;
+}
+
+.messaging-widget-channels-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.messaging-widget-channel-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+  text-decoration: none;
+  color: #333;
+}
+
+.messaging-widget-channel-item:last-child {
+  border-bottom: none;
+}
+
+.messaging-widget-channel-item:hover {
+  background: #f8f9fa;
+}
+
+.messaging-widget-channel-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.messaging-widget-channel-name {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.messaging-widget-chat-window {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 350px;
+  height: 500px;
+  background: white;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.messaging-widget-chat-window.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.messaging-widget-chat-header {
+  background: #25d366;
+  color: white;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.messaging-widget-chat-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.messaging-widget-close-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  font-size: 18px;
+}
+
+.messaging-widget-close-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.messaging-widget-chat-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #f8f9fa;
+}
+
+.messaging-widget-message {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.messaging-widget-message.received {
+  background: white;
+  color: #333;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.messaging-widget-message.sent {
+  background: #25d366;
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.messaging-widget-chat-input-container {
+  padding: 16px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  gap: 8px;
+  background: white;
+}
+
+.messaging-widget-chat-input {
+  flex: 1;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.messaging-widget-chat-input:focus {
+  border-color: #25d366;
+}
+
+.messaging-widget-send-button {
+  width: 36px;
+  height: 36px;
+  background: #25d366;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.messaging-widget-send-button:hover {
+  background: #128c7e;
+  transform: scale(1.05);
+}
+
+.messaging-widget-send-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.messaging-widget-typing-indicator {
+  padding: 8px 12px;
+  background: white;
+  border-radius: 12px;
+  border-bottom-left-radius: 4px;
+  align-self: flex-start;
+  font-style: italic;
+  color: #666;
+  animation: messaging-widget-pulse 2s infinite;
+}
+
+@keyframes messaging-widget-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  #messaging-widget-container {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .messaging-widget-chat-window {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .messaging-widget-channels-menu {
+    right: 0;
+    left: 0;
+    margin: 0 20px;
+    bottom: 70px;
+  }
+}
+
+/* Posiciones alternativas */
+.messaging-widget-position-bottom-left {
+  bottom: 20px;
+  left: 20px;
+  right: auto;
+}
+
+.messaging-widget-position-top-right {
+  top: 20px;
+  right: 20px;
+  bottom: auto;
+}
+
+.messaging-widget-position-top-left {
+  top: 20px;
+  left: 20px;
+  bottom: auto;
+  right: auto;
+}
+
+/* Temas de color */
+.messaging-widget-theme-blue .messaging-widget-main-button,
+.messaging-widget-theme-blue .messaging-widget-chat-header,
+.messaging-widget-theme-blue .messaging-widget-message.sent,
+.messaging-widget-theme-blue .messaging-widget-send-button {
+  background: #007bff;
+}
+
+.messaging-widget-theme-blue .messaging-widget-send-button:hover {
+  background: #0056b3;
+}
+
+.messaging-widget-theme-blue .messaging-widget-chat-input:focus {
+  border-color: #007bff;
+}
+
+.messaging-widget-theme-purple .messaging-widget-main-button,
+.messaging-widget-theme-purple .messaging-widget-chat-header,
+.messaging-widget-theme-purple .messaging-widget-message.sent,
+.messaging-widget-theme-purple .messaging-widget-send-button {
+  background: #6f42c1;
+}
+
+.messaging-widget-theme-purple .messaging-widget-send-button:hover {
+  background: #5a2d91;
+}
+
+.messaging-widget-theme-purple .messaging-widget-chat-input:focus {
+  border-color: #6f42c1;
+}
+
+.messaging-widget-theme-red .messaging-widget-main-button,
+.messaging-widget-theme-red .messaging-widget-chat-header,
+.messaging-widget-theme-red .messaging-widget-message.sent,
+.messaging-widget-theme-red .messaging-widget-send-button {
+  background: #dc3545;
+}
+
+.messaging-widget-theme-red .messaging-widget-send-button:hover {
+  background: #c82333;
+}
+
+.messaging-widget-theme-red .messaging-widget-chat-input:focus {
+  border-color: #dc3545;
+}
+
+/* Utilidades */
+.messaging-widget-hidden {
+  display: none !important;
+}
+
+.messaging-widget-fade-in {
+  animation: messaging-widget-fadeIn 0.3s ease;
+}
+
+.messaging-widget-fade-out {
+  animation: messaging-widget-fadeOut 0.3s ease;
+}
+
+@keyframes messaging-widget-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes messaging-widget-fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
