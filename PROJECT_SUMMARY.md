@@ -248,7 +248,7 @@ MessagingWidget.init({
 ```javascript
 MessagingWidget.init({
   channels: {
-    internalChat: { enabled: true, socketUrl: 'wss://api.tuapp.com/chat' }
+    internalChat: { enabled: true, socketUrl: 'wss://api.tap2talk.chat/comm' }
   },
   hooks: {
     onMessageSend: (msg) => analytics.track('support_message', {msg})

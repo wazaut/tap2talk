@@ -20,7 +20,7 @@ git --version   # cualquier versión reciente
 
 ```bash
 # Clonar repositorio
-git clone https://github.com/japc-74/messaging-widget.git
+git clone https://github.com/wazaut/tap2talk.git
 cd messaging-widget
 
 # Instalar dependencias
@@ -237,13 +237,13 @@ git push origin v1.0.0
 #### Opción A: Descarga Directa
 ```bash
 # Desde GitHub Releases
-curl -L https://github.com/tu-usuario/messaging-widget/releases/download/v1.0.0/messaging-widget.min.js -o messaging-widget.min.js
+curl -L https://github.com/wazaut/tap2talk/releases/download/v1.0.0/messaging-widget.min.js -o messaging-widget.min.js
 ```
 
 #### Opción B: Git Submodule
 ```bash
 # En tu proyecto
-git submodule add https://github.com/tu-usuario/messaging-widget.git vendor/messaging-widget
+git submodule add https://github.com/wazaut/tap2talk.git vendor/messaging-widget
 
 # Usar archivo compilado
 <script src="vendor/messaging-widget/dist/messaging-widget.min.js"></script>
@@ -492,7 +492,7 @@ MessagingWidget.init({
 ### CDN Analytics
 ```javascript
 // Tracking de uso
-fetch('https://analytics.tudominio.com/track', {
+fetch('https://analytics.tap2talk.chat/track', {
   method: 'POST',
   body: JSON.stringify({
     widget: 'messaging-widget',
@@ -575,10 +575,10 @@ npm run analyze
 ```
 
 ### Support Channels
-- 📧 **Email**: support@wazaut.com
+- 📧 **Email**: support@tap2talk.chat
 - 💬 **Discord**: [Link al servidor]
-- 📖 **Docs**: https://docs.tudominio.com
-- 🐛 **Issues**: https://github.com/japc-74/messaging-widget/issues
+- 📖 **Docs**: https://docs.tap2talk.chat
+- 🐛 **Issues**: https://github.com/wazaut/tap2talk/issues
 
 ---
 

@@ -1,4 +1,4 @@
-# 🚀 Messaging Widget Multi-Canal
+# 🚀 Tap2Talk - Messaging Widget Multi-Canal
 
 Widget embebible reutilizable para integrar múltiples canales de mensajería (WhatsApp, Instagram, Facebook Messenger y chat interno) en cualquier sitio web con una sola línea de código.
 
@@ -106,7 +106,7 @@ MessagingWidget.init({
     },
     internalChat: {
       enabled: true,
-      socketUrl: 'wss://wazaut.com/chat'
+      socketUrl: 'wss://tap2talk.chat/comm'
     }
   },
   
@@ -138,7 +138,7 @@ MessagingWidget.init({
     enabled: true,
     trackClicks: true,
     trackMessages: true,
-    endpoint: 'https://wazaut.com/analytics'
+    endpoint: 'https://tap2talk.com/analytics'
   }
 });
 ```
@@ -470,13 +470,13 @@ MIT License - ver [LICENSE](LICENSE) para más detalles.
 
 ## 📞 Soporte
 
-- 📧 Email: soporte@wazaut.com
-- 📖 Docs: [Documentación completa](https://docs.wazaut.com)
-- 🐛 Issues: [GitHub Issues](https://github.com/wazaut/messaging-widget/issues)
+- 📧 Email: support@tap2talk.chat
+- 📖 Docs: [Documentación completa](https://docs.tap2talk.chat)
+- 🐛 Issues: [GitHub Issues](https://github.com/wazaut/tap2talk/issues)
 
 ## 🏆 Créditos
 
-Desarrollado con ❤️ por [Tu Nombre](https://github.com/wazaut)
+Desarrollado con ❤️ por [Wazaut](https://github.com/wazaut/tap2talk)
 
 ### Iconos
 - WhatsApp, Instagram, Messenger iconos por sus respectivos propietarios
